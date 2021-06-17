@@ -1,18 +1,13 @@
-import io.reactivex.rxjava3.core.Observable;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
 
 public class Main {
-    public static void main(String[] varargs) throws InterruptedException {
+    public static void main(String[] varargs) {
 
     }
 
