@@ -48,6 +48,8 @@ public class Main {
         source.map(number -> random.nextBoolean()).subscribe(observer);
 
         /*
+        Otra forma de establecer el subscribe
+        
         source.map(number -> random.nextBoolean()).subscribe(status -> {
             System.out.println(status ? "Device working properly." : "Detecting system failure, taking measures.");
         });
