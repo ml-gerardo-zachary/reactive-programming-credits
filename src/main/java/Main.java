@@ -1,13 +1,68 @@
+import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.disposables.Disposable;
+
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
 import java.util.Properties;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] varargs) {
+
+        Random random = new Random();
+
+        Observable<Integer> source = Observable.range(1, 100);
+
+
+        Observer<Boolean> observer = new Observer<Boolean>() {
+            @Override
+            public void onSubscribe(@NonNull Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(@NonNull Boolean aBoolean) {
+                System.out.println(aBoolean ? "Device working properly." : "Detecting system failure, taking measures.");
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+                System.out.println("success");
+            }
+        };
+
+
+
+        source.map(number -> random.nextBoolean()).subscribe(observer);
+
+        /*
+        Otra forma de establecer el subscribe
+        
+        source.map(number -> random.nextBoolean()).subscribe(status -> {
+            System.out.println(status ? "Device working properly." : "Detecting system failure, taking measures.");
+        });
+        
+         */
+
+
+
+
+
+
+
+
 
     }
 
